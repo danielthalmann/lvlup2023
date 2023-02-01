@@ -18,10 +18,11 @@ Lucie Genevey
 
 Leandro Camilo Da Costa
 
-- [https://github.com/Elwoll](https://github.com/Elwoll)
+- 
 
 Lowell Zima
 
+- [https://itch.io/profile/elwoll](https://itch.io/profile/elwoll)
 - [https://github.com/Elwoll](https://github.com/Elwoll)
 
 Davi Farhi
