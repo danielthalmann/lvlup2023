@@ -19,6 +19,7 @@ Lucie Genevey
 Leandro Camilo Da Costa
 
 - [https://github.com/AkuraNashi](https://github.com/AkuraNashi)
+- [https://akuranashi.itch.io/](https://akuranashi.itch.io/)
 
 Lowell Zima
 
