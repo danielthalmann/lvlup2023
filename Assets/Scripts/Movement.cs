@@ -4,51 +4,44 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float horizontal;
-    public float speed = 8f;
-	public float jumpSpeed = 16f;
-	public bool isRight = true;
-	[SerializeField] private Rigidbody rb;
-	[SerializeField] private Transform touchingGround;
-	[SerializeField] private LayerMask Mask;
+    private float horizontal;
+    private float speed = 8f;
+    private float jumpingPower = 16f;
+    private bool isFacingRight = true;
 
-    // Update is called once per frame
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
+
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-		if (Input.GetButtonDown("Jump") && isGrounded())
-		{
-			rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-		}
-		if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-		{
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y* 0.5f);
-        }
-		flip();
+        horizontal = Input.GetAxisRaw("Horizontal");
+
+        if (Input.GetButtonDown("Jump") && IsGrounded())
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        Flip();
     }
 
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+    }
 
-	private void flip()
-	{
-		if (isRight && horizontal < 0f || !isRight && horizontal > 0f)
-		{
-			isRight = !isRight;
-			Vector3 LocalScale = transform.localScale;
-			LocalScale.x *= -1f;
-			transform.localScale = LocalScale;
-		}
-	}
-	/// <summary>
-	/// Check si le personnage est au sol
-	/// </summary>
-	/// <returns>1 si il est au sol</returns>
-	private bool isGrounded()
-	{
-		return Physics2D.OverlapCircle(touchingGround.position, 0.2f, Mask);
-	}
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
 
-	private void FixedUpdate()
-	{
-		rb.velocity = new Vector2 (horizontal * speed, rb.velocity.y * 0.5f);
-	}
+    private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
+    }
 }
