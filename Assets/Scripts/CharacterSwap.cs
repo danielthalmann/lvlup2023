@@ -28,6 +28,9 @@ public class CharacterSwap : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///Recupere le charactere actuellement en main du joueur et desactive ceux qui ne le sont pas
+    /// </summary>
     void Swap()
     {
         character = availableChar[whichChar];
@@ -37,8 +40,16 @@ public class CharacterSwap : MonoBehaviour
             if (availableChar[i] != character)
             {
                 availableChar[i].GetComponent<Movement>().enabled = false;
+                availableChar[i].GetComponent<Action>().enabled = false;
                 availableChar[i].velocity = new Vector2(0.0f, 0.0f);
                 Physics2D.IgnoreCollision(character.GetComponent<Collider2D>(), availableChar[i].GetComponent<Collider2D>(), true);
+            }
+            else if (availableChar[i] == character)
+            {
+                availableChar[i].GetComponent<Movement>().enabled = true;
+                availableChar[i].GetComponent<Action>().enabled = true;
+                availableChar[i].velocity = new Vector2(0.0f, 0.0f);
+                Physics2D.IgnoreCollision(character.GetComponent<Collider2D>(), availableChar[i].GetComponent<Collider2D>(), false);
             }
         }
     }
