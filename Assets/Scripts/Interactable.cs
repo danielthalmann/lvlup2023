@@ -5,23 +5,36 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-
-    // Check if in range
     public bool         isInRange;
     public KeyCode      interactKey;
     public UnityEvent   interactAction;
-    // Press Key to engage interaction
-    // Execute interaction
 
-    // Start is called before the first frame update
-    void Start()
+    void    Update()
     {
-        
+        if (isInRange)
+        {
+            if (Input.GetKeyDown(interactKey)) 
+            {
+                interactAction.Invoke();
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player")
+    //    {
+    //        isInRange= true;
+    //        Debug.Log("Player is in range");
+    //    }
+    //}
+
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player")
+    //    {
+    //        isInRange= false;
+    //        Debug.Log("Player not in range");
+    //    }
+    //}
 }
