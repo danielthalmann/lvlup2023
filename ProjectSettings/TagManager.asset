@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Brute
+  - Interruptor
   layers:
   - Default
   - TransparentFX
