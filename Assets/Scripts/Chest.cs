@@ -5,15 +5,15 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     public bool     isOpen;
-    public Animator animator;
+    //public Animator animator;
 
     public void OpenChest()
     {
         if (!isOpen)
         {
-            isOpen= true;
+            isOpen = true;
             Debug.Log("The chest is now open");
-            animator.SetBool("IsOpen", isOpen);
+            //animator.SetBool("IsOpen", isOpen);
         }
     }
 }
