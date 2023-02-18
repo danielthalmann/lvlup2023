@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 1269512404142512936}
   - component: {fileID: 1269512404142512942}
   - component: {fileID: 1269512404142512943}
+  - component: {fileID: 3663440450203126999}
   m_Layer: 0
   m_Name: Brute
   m_TagString: Untagged
@@ -179,10 +180,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1269512404142512936}
-  groundCheck: {fileID: 1269512403808891119}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
+--- !u!114 &3663440450203126999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269512404142512937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99c476553f0c41e293eb3a0dc675978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1269512404142512936}
+  bullet: {fileID: 0}
+  throwPoint: {fileID: 0}
 --- !u!1 &1269512404434915343
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,10 +343,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1269512404434915342}
-  groundCheck: {fileID: 1269512404997221700}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &1269512404659087194
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +356,7 @@ GameObject:
   - component: {fileID: 1269512404659087197}
   - component: {fileID: 1269512404659087192}
   - component: {fileID: 1269512404659087196}
+  - component: {fileID: 3376365162718387885}
   m_Layer: 0
   m_Name: Bon
   m_TagString: Untagged
@@ -483,10 +492,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1269512404659087197}
-  groundCheck: {fileID: 1269512404689221860}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
+--- !u!114 &3376365162718387885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269512404659087194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99c476553f0c41e293eb3a0dc675978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1269512404659087197}
+  bullet: {fileID: 0}
+  throwPoint: {fileID: 0}
 --- !u!1 &1269512404689221861
 GameObject:
   m_ObjectHideFlags: 0

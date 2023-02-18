@@ -27,7 +27,6 @@ public class Interactable : MonoBehaviour
             isInRange= true;
             Debug.Log("Brute is in range");
         }
-        if ()
     }
 
     private void OnTriggerExit2D(Collider2D collision)
