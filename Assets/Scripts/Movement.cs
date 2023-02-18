@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +35,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(horizontal);
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
