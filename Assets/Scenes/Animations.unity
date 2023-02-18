@@ -589,15 +589,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1269512404142512937, guid: 629f251c875995446995a0ea4d7a7d09, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Brute
       objectReference: {fileID: 0}
     - target: {fileID: 1269512404434915343, guid: 629f251c875995446995a0ea4d7a7d09, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Truand
       objectReference: {fileID: 0}
     - target: {fileID: 1269512404659087194, guid: 629f251c875995446995a0ea4d7a7d09, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Bon
       objectReference: {fileID: 0}
     - target: {fileID: 1269512405235825112, guid: 629f251c875995446995a0ea4d7a7d09, type: 3}
       propertyPath: m_RootOrder
