@@ -16,8 +16,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") && IsGrounded() && name == "Bon")
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
