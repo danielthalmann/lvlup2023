@@ -19,7 +19,12 @@ public class Bullet : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other)
-    { 
+    {
+        if (other.tag == "Ennemy")
+        {
+            GameObject enemy = other.gameObject;
+            Destroy(enemy);
+        }
         Destroy(gameObject);
     }
 }
