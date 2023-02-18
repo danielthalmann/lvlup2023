@@ -1,0 +1,1 @@
+a guy stealing alcohol from a grocery store, octane render, detailed textures + micro details , + post processing + photo realism + realistic + 8k + cinematic atmosphere + sharp lines
