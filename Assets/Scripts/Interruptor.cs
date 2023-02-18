@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterToggler : MonoBehaviour
+public class Interruptor : MonoBehaviour
 {
-
+    
+    public List<ToggleBase> toggles = new List<ToggleBase>();
     private bool canToggle;
-    List<IToggle> toggles;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        canToggle = false;
     }
 
     // Update is called once per frame
@@ -19,9 +19,9 @@ public class CharacterToggler : MonoBehaviour
     {
         if (canToggle)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                foreach(var toggle in toggles)
+                foreach(ToggleBase toggle in toggles)
                 {
                     toggle.Toggle();
                 }
@@ -30,11 +30,13 @@ public class CharacterToggler : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Interruptor")
+        Debug.Log(collision.tag);
+
+        if (collision.tag == "Player")
         {
+            Debug.Log("interruptor in");
             canToggle = true;
         }
     }
@@ -42,8 +44,9 @@ public class CharacterToggler : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        if (collision.tag == "Interruptor")
+        if (collision.tag == "Player")
         {
+            Debug.Log("interruptor out");
             canToggle = false;
         }
 
