@@ -7,6 +7,7 @@ public class CharacterSwap : MonoBehaviour
     public Rigidbody2D character;
     public List<Rigidbody2D> availableChar;
     public int whichChar;
+    public CamTarget camTaget;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +61,7 @@ public class CharacterSwap : MonoBehaviour
                 else if (availableChar[i].tag == "Brute")
                     availableChar[i].GetComponent<Breakable>().enabled = true;
                 Physics2D.IgnoreCollision(character.GetComponent<Collider2D>(), availableChar[i].GetComponent<Collider2D>(), false);
+                camTaget.target = availableChar[i].transform;
             }
         }
     }
