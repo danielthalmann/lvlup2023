@@ -34,7 +34,7 @@ public class Interruptor : MonoBehaviour
     {
         Debug.Log(collision.tag);
 
-        if (collision.tag == "Player")
+        if (collision.tag == "Bon")
         {
             Debug.Log("interruptor in");
             canToggle = true;
@@ -44,7 +44,7 @@ public class Interruptor : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        if (collision.tag == "Player")
+        if (collision.tag == "Bon")
         {
             Debug.Log("interruptor out");
             canToggle = false;
