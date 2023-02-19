@@ -20,6 +20,8 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    //Chopper le gameobject mur, detruire ce mur ainsi que sa visiblite-
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Brute"))
@@ -27,7 +29,6 @@ public class Interactable : MonoBehaviour
             isInRange= true;
             Debug.Log("Brute is in range");
         }
-        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
