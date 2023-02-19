@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] private Rigidbody2D rb;
+    public GameObject bullet;
+    public Transform throwPoint;
     // Update is called once per frame
     void Update()
     {
-        
+        if (rb.tag == "Brute" && Input.GetKeyDown(KeyCode.E))
+            Shoot();
+    }
+
+    void Shoot()
+    {
+        Debug.Log("Wakanda");
+        GameObject bulletClone = (GameObject)Instantiate(bullet, throwPoint.position, throwPoint.rotation);
+        bulletClone.transform.localScale = transform.localScale;
+        Destroy(bulletClone, 1f);
     }
 }
+

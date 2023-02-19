@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5871588412758141858}
   - component: {fileID: 5871588412758141860}
   - component: {fileID: 5871588412758141861}
-  - component: {fileID: 5871588412758141862}
+  - component: {fileID: -7709326234981074399}
   m_Layer: 0
-  m_Name: bullet
+  m_Name: Poing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5871588412758141862
+--- !u!114 &-7709326234981074399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5871588412758141863}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 083a942e10bfe430fa6c50c558baa734, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bf36a8f6c74942ec9dc77345517fd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 30
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9061127823825676679}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

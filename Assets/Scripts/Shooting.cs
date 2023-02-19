@@ -18,6 +18,6 @@ public class Shooting : MonoBehaviour
     {
         GameObject bulletClone = (GameObject)Instantiate(bullet, throwPoint.position, throwPoint.rotation);
         bulletClone.transform.localScale = transform.localScale;
-        Destroy(bulletClone, 0.5f);
+        Destroy(bulletClone, 1f);
     }
 }

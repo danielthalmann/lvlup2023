@@ -9,6 +9,8 @@ TagManager:
   - Truand
   - Bon
   - Ennemi
+  - Ennemy
+  - Mur
   layers:
   - Default
   - TransparentFX
