@@ -35,15 +35,22 @@ public class CharacterSwap : MonoBehaviour
     {
         character = availableChar[whichChar];
         character.GetComponent<Movement>().enabled = true;
-        for (int i = 0; i < availableChar.Count; i++)
+        for (int i = 0; i <= availableChar.Count; i++)
         {
+            Debug.Log(availableChar[i]);
             if (availableChar[i] != character)
             {
                 availableChar[i].GetComponent<Movement>().enabled = false;
                 if (availableChar[i].tag == "Truand")
+                {
                     availableChar[i].GetComponent<Shooting>().enabled = false;
+                    availableChar[i].GetComponent<Movement>().enabled = false;
+                }
                 else if (availableChar[i].tag == "Brute")
+                {
                     availableChar[i].GetComponent<Breakable>().enabled = false;
+                    availableChar[i].GetComponent<Movement>().enabled = false;
+                }    
                 availableChar[i].velocity = new Vector2(0.0f, 0.0f);
                 Physics2D.IgnoreCollision(character.GetComponent<Collider2D>(), availableChar[i].GetComponent<Collider2D>(), true);
             }
