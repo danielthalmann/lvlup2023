@@ -12,6 +12,7 @@ public class CharacterSwap : MonoBehaviour
     {
         if (character == null && availableChar.Count >= 1)
             character = availableChar[0];
+
         Swap();
     }
 
@@ -30,38 +31,34 @@ public class CharacterSwap : MonoBehaviour
 
     /// <summary>
     ///Recupere le charactere actuellement en main du joueur et desactive ceux qui ne le sont pas
+    ///Le premier qui touche a ce script et le casse, se demmerde avec
     /// </summary>
     void Swap()
     {
+        //Rentre 2 fois si c'est le truand sinon 1
         character = availableChar[whichChar];
-        character.GetComponent<Movement>().enabled = true;
-        for (int i = 0; i <= availableChar.Count; i++)
+        for (int i = 0; i < 3; i++)
         {
-            Debug.Log(availableChar[i]);
             if (availableChar[i] != character)
             {
                 availableChar[i].GetComponent<Movement>().enabled = false;
                 if (availableChar[i].tag == "Truand")
-                {
                     availableChar[i].GetComponent<Shooting>().enabled = false;
-                    availableChar[i].GetComponent<Movement>().enabled = false;
-                }
                 else if (availableChar[i].tag == "Brute")
-                {
                     availableChar[i].GetComponent<Breakable>().enabled = false;
-                    availableChar[i].GetComponent<Movement>().enabled = false;
-                }    
                 availableChar[i].velocity = new Vector2(0.0f, 0.0f);
                 Physics2D.IgnoreCollision(character.GetComponent<Collider2D>(), availableChar[i].GetComponent<Collider2D>(), true);
             }
-            else if (availableChar[i] == character)
+            else
             {
                 availableChar[i].GetComponent<Movement>().enabled = true;
                 if (availableChar[i].tag == "Truand")
+                {
                     availableChar[i].GetComponent<Shooting>().enabled = true;
+                    availableChar[i].GetComponent<Movement>().enabled = true;
+                }
                 else if (availableChar[i].tag == "Brute")
                     availableChar[i].GetComponent<Breakable>().enabled = true;
-                availableChar[i].velocity = new Vector2(0.0f, 0.0f);
                 Physics2D.IgnoreCollision(character.GetComponent<Collider2D>(), availableChar[i].GetComponent<Collider2D>(), false);
             }
         }
