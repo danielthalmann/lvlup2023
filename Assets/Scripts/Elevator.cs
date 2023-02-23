@@ -6,6 +6,7 @@ public class Elevator : ToggleBase
 {
     public GameObject startPosition;
     public GameObject endPosition;
+    public GameObject elevator;
     public float speed;
 
     private Vector3 destination;
@@ -13,20 +14,20 @@ public class Elevator : ToggleBase
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = startPosition.transform.position;
+        elevator.transform.position = startPosition.transform.position;
         destination = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, destination) < 0.1)
+        if (Vector3.Distance(elevator.transform.position, destination) < 0.1)
         {
-            transform.position = destination;
+            elevator.transform.position = destination;
 
         } else
         {
-            transform.position = Vector3.Lerp(transform.position, destination, speed * Time.timeScale);
+            elevator.transform.position = Vector3.Lerp(elevator.transform.position, destination, speed * Time.timeScale);
         }
     }
 

@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7996191459146739380}
   - component: {fileID: 7996191459146739382}
   m_Layer: 0
-  m_Name: Interuptor
+  m_Name: Interruptor
   m_TagString: Interruptor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
