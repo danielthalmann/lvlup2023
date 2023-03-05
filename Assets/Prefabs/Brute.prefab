@@ -1437,11 +1437,14 @@ MonoBehaviour:
   canDestroy: 1
   canShoot: 0
   canMove: 1
+  animator: {fileID: 4283939858918307350}
   speed: 7
   jumpingPower: 16
   rb: {fileID: 1924475309548812042}
   gravityScale: 10
   fallGravityScale: 20
+  bullet: {fileID: 0}
+  throwPoint: {fileID: 0}
 --- !u!1 &548819085815091927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,6 +1517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1105828189907731095}
+  - component: {fileID: 4283939858918307350}
   m_Layer: 8
   m_Name: Character
   m_TagString: Untagged
@@ -1541,3 +1545,23 @@ Transform:
   m_Father: {fileID: 548819085809928492}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4283939858918307350
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024001082301704089}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65bfabedd4d4e944faafa81ac3662db7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

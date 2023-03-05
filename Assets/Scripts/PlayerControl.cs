@@ -13,6 +13,8 @@ public class PlayerControl : MonoBehaviour
     public bool canShoot = false;
     public bool canMove = true;
 
+    public Animator animator = null;
+
     public float   speed = 8f;
     public float jumpingPower = 16f;
     public Rigidbody2D rb;
@@ -30,6 +32,16 @@ public class PlayerControl : MonoBehaviour
     protected GameObject wall = null;
     protected GameObject interruptor = null;
 
+    private void FixedUpdate()
+    {
+        if (animator != null)
+        {
+            if (horizontal != 0)
+                animator.SetBool("walk", true);
+            else
+                animator.SetBool("walk", false);
+        }
+    }
 
     void Update()
     {
@@ -38,7 +50,9 @@ public class PlayerControl : MonoBehaviour
 
         if (canMove)
         {
-            rb.velocity = new Vector2(speed * horizontal, rb.velocity.y);
+            // rb.velocity = new Vector2(speed * horizontal, rb.velocity.y);
+            //rb.velocity = new Vector2(speed * horizontal, rb.velocity.y);
+            transform.position = new Vector3(transform.position.x + ((speed * horizontal) * Time.deltaTime), transform.position.y, transform.position.z);
             Flip();
         }
 
@@ -46,7 +60,7 @@ public class PlayerControl : MonoBehaviour
         {
             // https://www.youtube.com/watch?v=c9kxUvCKhwQ
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !jump)
             {
                 rb.AddForce(new Vector2(rb.velocity.x, jumpingPower));
                 jump = true;
@@ -112,6 +126,11 @@ public class PlayerControl : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.tag == "Ground")
+        {
+            jump = false;
+        }
+        
         if (collision.collider.tag == "Mur")
         {
             wall = collision.collider.gameObject;
@@ -124,6 +143,7 @@ public class PlayerControl : MonoBehaviour
         {
             wall = null;
         }
+
     }
 
     protected void Flip()

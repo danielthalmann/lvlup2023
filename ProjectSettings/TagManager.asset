@@ -11,6 +11,7 @@ TagManager:
   - Ennemi
   - Ennemy
   - Mur
+  - Ground
   layers:
   - Default
   - TransparentFX
