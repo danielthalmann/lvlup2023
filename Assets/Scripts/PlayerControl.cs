@@ -20,12 +20,16 @@ public class PlayerControl : MonoBehaviour
     public float gravityScale = 10;
     public float fallGravityScale = 20;
 
+    public GameObject bullet;
+    public Transform throwPoint;
+
     protected float   horizontal;
     protected bool    isFacingRight = true;
     protected bool    jump = false;
 
     protected GameObject wall = null;
     protected GameObject interruptor = null;
+
 
     void Update()
     {
@@ -74,27 +78,24 @@ public class PlayerControl : MonoBehaviour
             {
                 if (wall != null)
                 {
-                    Interruptor interruptor = wall.GetComponent<Interruptor>();
-                    interruptor.ToggleInterruptor();
+                    Wall wl = wall.GetComponent<Wall>();
+                    wl.openWall();
                 }
             }
         }
 
-        if (!canShoot)
+        if (canShoot)
         {
-            // do  shoot
-        }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Shoot();
+            }
 
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
-
-        if (collision.tag == "Interruptor")
-        {
-            interruptor = collision.gameObject;
-        }
         if (collision.tag == "Interruptor")
         {
             interruptor = collision.gameObject;
@@ -103,26 +104,26 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-
         if (collision.tag == "Interruptor")
         {
             interruptor = null;
         }
-
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ennemi"))
+        if (collision.collider.tag == "Mur")
         {
-            // Do something when a collision with an enemy's BoxCollider2D occurs
-            Debug.Log("Ennemie toucher, restart du level... [Movement->OnCollisionEnter2D]");
+            wall = collision.collider.gameObject;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-
+        if (collision.collider.tag == "Mur")
+        {
+            wall = null;
+        }
     }
 
     protected void Flip()
@@ -134,5 +135,14 @@ public class PlayerControl : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    void Shoot()
+    {
+        if (!bullet || !throwPoint)
+            return;
+        GameObject bulletClone = (GameObject)Instantiate(bullet, throwPoint.position, throwPoint.rotation);
+        bulletClone.transform.localScale = transform.localScale;
+        Destroy(bulletClone, 1f);
     }
 }
