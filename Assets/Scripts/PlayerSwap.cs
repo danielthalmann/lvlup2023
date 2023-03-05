@@ -39,7 +39,10 @@ public class PlayerSwap : MonoBehaviour
             if (i == currentPlayer)
                 players[i].enabled = true;
             else
+            {
+                players[i].StopWalk();
                 players[i].enabled = false;
+            }
         }
 
         camTaget.target = players[currentPlayer].gameObject.transform;

@@ -37,10 +37,28 @@ public class PlayerControl : MonoBehaviour
         if (animator != null)
         {
             if (horizontal != 0)
-                animator.SetBool("walk", true);
+                StartWalk();
             else
-                animator.SetBool("walk", false);
+                StopWalk();
         }
+    }
+
+    public void StartWalk()
+    {
+        if (animator != null)
+        {
+            animator.SetBool("walk", true);
+        }
+
+    }
+
+    public void StopWalk()
+    {
+        if (animator != null)
+        {
+            animator.SetBool("walk", false);
+        }
+
     }
 
     void Update()
