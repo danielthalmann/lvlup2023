@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -153,6 +154,12 @@ public class PlayerControl : MonoBehaviour
         {
             wall = collision.collider.gameObject;
         }
+
+        if (collision.collider.tag == "Ennemi")
+        {
+            int scene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -179,7 +186,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (!bullet || !throwPoint)
             return;
-        GameObject bulletClone = (GameObject)Instantiate(bullet, throwPoint.position, throwPoint.rotation);
+        GameObject bulletClone = (GameObject)Instantiate(bullet, throwPoint.position, Quaternion.Euler(Vector3.up));
         bulletClone.transform.localScale = transform.localScale;
         Destroy(bulletClone, 1f);
     }

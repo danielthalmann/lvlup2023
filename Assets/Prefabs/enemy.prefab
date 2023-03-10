@@ -231,6 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7621931131063763765}
+  - component: {fileID: 7440744485201852331}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Ennemi
@@ -254,6 +255,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7440744485201852331
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732078195482490059}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03945589, y: -0.32762456}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.8028107, y: 4.503389}
+  m_EdgeRadius: 0
 --- !u!1 &5238783178270442179
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,8 +429,8 @@ MonoBehaviour:
   - {fileID: 7499445973207697941}
   - {fileID: 5098189152914012870}
   m_Bounds:
-    m_Center: {x: -0.526531, y: -0.18424034, z: 0}
-    m_Extent: {x: 2.5184703, y: 2.8607607, z: 0}
+    m_Center: {x: -0.5265305, y: -0.18424034, z: 0}
+    m_Extent: {x: 2.5184708, y: 2.8607607, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
